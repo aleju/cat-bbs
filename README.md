@@ -2,7 +2,7 @@
 
 ![Example image](images/example-optical-illusion.jpg?raw=true "Example image")
 ![Example image](images/example-medal-of-honor-cat.jpg?raw=true "Example image")
-![Example image](images/example-horror-movie.jpg?raw=true "Example image")
+![Example image](images/example-walking-backwards.jpg?raw=true "Example image")
 ![Example image](images/example-toy-cat.jpg?raw=true "Example image")
 
 This project contains code to train and run a neural network to detect cat faces in videos.
@@ -20,7 +20,7 @@ Example video of detected bounding boxes:
 
 Example video of the training progress:
 
-[![Example video training progress](images/video-bbs.jpg?raw=true)](https://www.youtube.com/watch?v=Nply4o_Zgg8)
+[![Example video training progress](images/video-training.jpg?raw=true)](https://www.youtube.com/watch?v=Nply4o_Zgg8)
 
 # Dependencies
 
@@ -29,10 +29,11 @@ Example video of the training progress:
 * numpy
 * scikit-image
 * matplotlib
+* OpenCV
 * imgaug (`sudo pip install imgaug`)
 * [PyTorch](http://pytorch.org/)
 * NVIDIA GPU (might not work without CUDA+CuDNN, not tested), about 8GB (4GB might require to decrease batch sizes)
-* Optimized for Ubuntu, may or may not work in other systems.
+* Optimized for Ubuntu, may or may not work in other systems
 
 # Usage
 
