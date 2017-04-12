@@ -134,15 +134,14 @@ def main():
         if batch_idx % 50 == 0:
             update_window(TRAIN_WINDOW_NAME, inputs[0:8], outputs_gt[0:8], model)
 
-        time_vid_start = time.time()
-        grid = generate_video_image(batch_idx, examples_val[0:66], model)
-        misc.imsave("training-video/%05d.jpg" % (batch_idx,), grid)
-        #print("in", time.time() - time_vid_start)
+        # Code to generate a video of the training progress
+        #time_vid_start = time.time()
+        #grid = generate_video_image(batch_idx, examples_val[0:66], model)
+        #misc.imsave("training-video/%05d.jpg" % (batch_idx,), grid)
 
         # every N batches, validate
         if (batch_idx+1) % VAL_EVERY == 0:
-            # the validation computes and average over N randomly picked
-            # batches
+            # the validation computes an average over N randomly picked batches
             time_cbatch_total = 0
             time_fwbw_total = 0
             loss_total = 0

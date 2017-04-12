@@ -23,9 +23,14 @@ def main():
     assert args.dataset_dir is not None, "Expected 10k cats dataset directory via --dataset_dir"
 
     # load images and their facial keypoints
+    print("Loading filepaths...")
     fps = find_image_filepaths(args.dataset_dir)
+
+    print("Loading images...")
     examples = []
-    for fp in fps:
+    for i, fp in enumerate(fps):
+        if (i+1) % 100 == 0:
+            print("Image %d of %d..." % (i+1, len(fps)))
         img = ndimage.imread(fp, mode="RGB")
         kps = load_keypoints(fp, image_height=img.shape[0], image_width=img.shape[1])
         img_square, (added_top, added_right, added_bottom, added_left) = to_aspect_ratio_add(img, 1.0, return_paddings=True)
@@ -36,6 +41,7 @@ def main():
         examples.append(Example(fp, img_square_rs, kps_rs))
 
     # save datasets
+    print("Saving pickle file...")
     with open(os.path.join(args.out_dir, "cats-dataset.pkl"), "w") as f:
         pickle.dump(examples, f)
 
